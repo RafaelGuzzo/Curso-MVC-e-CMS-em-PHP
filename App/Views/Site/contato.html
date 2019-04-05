@@ -1,0 +1,32 @@
+{% extends "Site/Layout.html" %}
+{% block titulo %} {{ titulo }} {% endblock %}
+
+{% block content %}
+	<h1>Pagina de Contato</h1>
+	{% if mensagem is defined %}
+		{{ mensagem }}
+	{% endif %}
+	<form action="/contato/enviar" method="POST">
+		<div class="form-group">
+			<label for="exampleFormControlInput1">Endereço de email</label>
+			<input type="email" class="form-control" name="email" placeholder="nome@exemplo.co'">
+		</div>
+
+		<div class="form-group">
+			<label for="exampleFormControlInput1">nome</label>
+			<input type="text" class="form-control" name="nome" placeholder="nome@exemplo.com">
+		</div>
+
+		<div class="form-group">
+			<label for="exampleFormControlInput1">assunto</label>
+			<input type="text" class="form-control" name="assunto" placeholder="nome@exemplo.com">
+		</div>
+
+		<div class="form-group">
+			<label for="exampleFormControlTextarea1">Exemplo de textarea</label>
+			<textarea class="form-control" name="mensagem" rows="3"></textarea>
+		</div>
+
+		<button type="submit" class="btn btn-primary">Enviar</button>
+	</form>
+{% endblock %}
